@@ -1,0 +1,25 @@
+// 根构建脚本：使用 HTTP 镜像仓库（本机构建环境无 HTTPS，故显式 allowInsecureProtocol）
+// Google Maven 走 dl.google.com，Maven Central 走华为云 HTTP 代理
+buildscript {
+    repositories {
+        maven { url 'https://dl.google.com/android/maven2/' }
+        mavenCentral()
+        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.5.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://dl.google.com/android/maven2/' }
+        mavenCentral()
+        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

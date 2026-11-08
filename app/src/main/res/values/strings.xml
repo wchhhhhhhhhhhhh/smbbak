@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">易备份</string>
+    <string name="app_full_name">易备份 · 手机资料备份到 SMB/NAS</string>
+
+    <!-- 通用 -->
+    <string name="action_back">返回</string>
+    <string name="action_save">保存</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_ok">确定</string>
+    <string name="action_yes">是</string>
+    <string name="action_no">否</string>
+    <string name="action_retry">重试</string>
+    <string name="not_configured">未配置</string>
+
+    <!-- Main -->
+    <string name="main_title">备份</string>
+    <string name="main_status_idle">尚未备份</string>
+    <string name="main_status_running">正在备份…</string>
+    <string name="main_last_run">最近一次：%1$s</string>
+    <string name="main_result_ok">成功</string>
+    <string name="main_result_failed">失败</string>
+    <string name="main_result_cancelled">已取消</string>
+    <string name="main_result_partial">部分失败</string>
+    <string name="main_summary">上传 %1$d 个 · 跳过 %2$d 个 · 失败 %3$d 个 · %4$s</string>
+    <string name="main_btn_backup_now">立即备份</string>
+    <string name="main_btn_stop">停止备份</string>
+    <string name="main_phase_now">当前：%1$s</string>
+    <string name="main_progress_count">%1$d / %2$d 个文件</string>
+    <string name="main_bytes">已传 %1$s</string>
+    <string name="main_speed">上传速度：%1$s</string>
+    <string name="main_error_hint">备份失败：%1$s</string>
+    <string name="main_notify_grant">部分备份项缺少权限，请在“备份内容”中处理</string>
+    <string name="main_current_file">正在上传：%1$s</string>
+
+    <!-- 卡片标题 -->
+    <string name="sec_smb">SMB 服务器</string>
+    <string name="sec_sources">备份内容</string>
+    <string name="sec_options">选项</string>
+    <string name="sec_logs">备份日志</string>
+    <string name="sec_actions">操作</string>
+
+    <!-- 设置页 -->
+    <string name="smb_title">SMB 服务器设置</string>
+    <string name="smb_hint">示例：\\192.168.1.100\share  或 \\nas.local\backup\手机</string>
+    <string name="smb_host">服务器地址（IP 或主机名）</string>
+    <string name="smb_port">端口（默认 445）</string>
+    <string name="smb_share">共享名</string>
+    <string name="smb_user">用户名（匿名可留空）</string>
+    <string name="smb_pass">密码（匿名可留空）</string>
+    <string name="smb_domain">域/工作组（可留空）</string>
+    <string name="smb_remote_root">远端根目录（在共享下的相对路径，可留空）</string>
+    <string name="smb_test">测试连接</string>
+    <string name="smb_testing">正在测试…</string>
+    <string name="smb_test_ok">连接成功 ✔ 共享：%1$s</string>
+    <string name="smb_test_fail">连接失败：%1$s</string>
+    <string name="smb_share_path_preview">将备份到：\\%1$s\%2$s\%3$s</string>
+    <string name="smb_unsaved">请先填写服务器地址与共享名</string>
+    <string name="smb_saved">已保存</string>
+    <string name="smb_note">提示：NAS 需开启 SMB2/SMB3 协议（本应用不支持已淘汰的 SMB1）。群晖/威联通等默认已开启。</string>
+
+    <!-- 来源页 -->
+    <string name="sources_title">备份内容</string>
+    <string name="sources_media_title">手机媒体</string>
+    <string name="sources_images">照片（所有相册图片）</string>
+    <string name="sources_videos">视频（所有相册视频）</string>
+    <string name="sources_media_perm_missing">缺少“照片和视频”读取权限，点击授予</string>
+    <string name="sources_media_perm_ok">权限正常</string>
+    <string name="sources_folder_title">自定义文件夹（系统目录选择器）</string>
+    <string name="sources_folder_add">+ 添加文件夹</string>
+    <string name="sources_folder_empty">尚未添加任何文件夹\n点击上方按钮，选择要备份的文件夹（如 DCIM、Download 等）</string>
+    <string name="sources_folder_perm_hint">已自动获取该文件夹的长期访问授权</string>
+    <string name="sources_path_title">路径模式文件夹（可选，需“所有文件访问”权限）</string>
+    <string name="sources_path_grant">授予“所有文件访问”权限</string>
+    <string name="sources_path_granted">权限已授予 ✔ 可添加路径文件夹</string>
+    <string name="sources_path_add">+ 添加路径文件夹</string>
+    <string name="sources_path_input_hint">输入绝对路径，如 /storage/emulated/0/DCIM/Camera</string>
+    <string name="sources_path_invalid">路径无效或不可访问</string>
+    <string name="sources_path_need_perm">需先授予“所有文件访问”权限</string>
+    <string name="sources_remove">移除</string>
+    <string name="sources_rename">改名</string>
+    <string name="sources_remove_confirm">确定移除“%1$s”？不会删除手机或远端任何文件。</string>
+    <string name="sources_label_dialog_title">该文件夹在远端显示的名称</string>
+    <string name="sources_label_empty">名称不能为空</string>
+    <string name="sources_saved">设置已保存</string>
+
+    <!-- 选项页 -->
+    <string name="options_title">备份选项</string>
+    <string name="options_auto">自动备份</string>
+    <string name="options_auto_off">关闭</string>
+    <string name="options_auto_daily">每天</string>
+    <string name="options_auto_3days">每 3 天</string>
+    <string name="options_auto_weekly">每周</string>
+    <string name="options_wifi_only">自动备份仅在 Wi-Fi 下进行</string>
+    <string name="options_wifi_only_hint">防止消耗手机流量；手动备份不受此限制</string>
+    <string name="options_keep_dates">保留原文件修改时间</string>
+    <string name="options_keep_dates_hint">让远端文件时间与手机一致（部分 NAS 可能忽略）</string>
+    <string name="options_notif_hint">自动备份需通知权限，用于显示进度与结果</string>
+    <string name="options_auto_hint">自动备份会在设备空闲时进行，建议保持“仅在 Wi-Fi”开启。</string>
+    <string name="options_saved">选项已保存</string>
+
+    <!-- 日志 -->
+    <string name="logs_title">备份日志</string>
+    <string name="logs_empty">暂无日志</string>
+    <string name="logs_clear">清空</string>
+
+    <!-- 通知 -->
+    <string name="notif_channel_progress">备份进度</string>
+    <string name="notif_channel_result">备份结果</string>
+    <string name="notif_running_title">正在备份到 %1$s</string>
+    <string name="notif_running_text">%1$d / %2$d 个文件 · %3$s</string>
+    <string name="notif_done_title">备份完成</string>
+    <string name="notif_done_text">上传 %1$d · 跳过 %2$d · 失败 %3$d</string>
+    <string name="notif_fail_title">备份失败</string>
+    <string name="notif_fail_text">%1$s</string>
+    <string name="notif_cancel_title">备份已停止</string>
+    <string name="notif_cancel_text">已上传 %1$d 个文件</string>
+
+    <!-- 引擎阶段 -->
+    <string name="phase_connect">正在连接 SMB 服务器…</string>
+    <string name="phase_index">正在读取远端目录…</string>
+    <string name="phase_scan">正在扫描：%1$s</string>
+    <string name="phase_upload">正在上传：%1$s</string>
+    <string name="phase_done">完成</string>
+
+    <!-- 来源标签 -->
+    <string name="src_images_label">照片</string>
+    <string name="src_videos_label">视频</string>
+    <string name="src_folder_label">自定义文件夹</string>
+
+    <!-- 错误/提示文本 -->
+    <string name="err_no_smb_config">请先在“SMB 服务器”中填写服务器与共享名</string>
+    <string name="err_no_source">没有可备份的内容：请至少开启照片/视频，或添加一个文件夹</string>
+    <string name="err_media_perm">缺少读取照片/视频的权限</string>
+    <string name="err_connect_host">找不到主机（%1$s）\n请检查 IP/主机名是否正确</string>
+    <string name="err_connect_timeout">连接超时\n请检查 IP、端口(445) 与防火墙</string>
+    <string name="err_connect_refused">无法连接 %1$s:%2$d\n确认 NAS 已开机且允许 SMB</string>
+    <string name="err_login_failed">用户名或密码错误（或账户无权限）</string>
+    <string name="err_share_not_found">共享“%1$s”不存在\n请检查共享名是否与 NAS 上一致</string>
+    <string name="err_access_denied">权限不足，无法访问该共享目录</string>
+    <string name="err_generic">%1$s</string>
+    <string name="cancel_requested">已请求停止，正在收尾…</string>
+
+    <!-- 图集选择 -->
+    <string name="sources_album_scope">图集范围</string>
+    <string name="sources_album_scope_all">全部图集（默认，可能包含各 App 缓存目录）</string>
+    <string name="sources_album_scope_images">图片：仅 %1$d 个相册</string>
+    <string name="sources_album_scope_videos">视频：仅 %1$d 个相册</string>
+    <string name="albums_title">选择要备份的图集</string>
+    <string name="albums_kind_images">图片图集</string>
+    <string name="albums_kind_videos">视频图集</string>
+    <string name="albums_hint">勾选的图集才会被备份；全部不勾选 = 备份全部图集。\n像“thumbnails/缩略/缓存/cache/temp”这类可疑目录通常不用备份，取消勾选即可排除。</string>
+    <string name="albums_clear">清除选择（恢复为备份全部）</string>
+    <string name="albums_loading">正在读取图集…</string>
+    <string name="albums_empty">没有找到图集（请确认已授予照片/视频读取权限）</string>
+    <string name="albums_file_count">%1$d 个文件</string>
+
+    <!-- 传输方式 / USB -->
+    <string name="smb_mode_title">连接方式</string>
+    <string name="smb_mode_wifi">Wi-Fi SMB（NAS/路由器）</string>
+    <string name="smb_mode_usb">USB 直连电脑</string>
+    <string name="smb_mode_hotspot">热点（电脑连手机）</string>
+    <string name="smb_mode_wifi_btn">Wi-Fi</string>
+    <string name="smb_mode_usb_btn">USB</string>
+    <string name="smb_mode_hotspot_btn">热点</string>
+    <string name="usb_helper">USB 模式说明：\n1. 用数据线把手机连电脑；\n2. 手机上开启「USB网络共享」（不需要 USB 调试/ADB）；\n3. 在电脑上把目标文件夹设为共享（如 \\\\DESKTOP-XXX\\backup）；\n4. 下方“共享名/用户名/密码/远端目录”填电脑共享的信息；\n5. 电脑 IP 留空=自动检测，也可手动填写。</string>
+    <string name="usb_host_manual">电脑 IP（可留空=自动检测）</string>
+    <string name="usb_err_not_found">未检测到 USB 网络共享链路。\n请确认：数据线已连接、手机已开启“USB网络共享”（无需 ADB/USB 调试）、电脑已开机并共享了目标文件夹。也可在设置里手动填写电脑 IP。</string>
+    <string name="usb_host_found">将连接电脑：%1$s</string>
+    <string name="hotspot_host_manual">电脑 IP（可留空=自动探测热点网段）</string>
+    <string name="hotspot_helper">热点模式说明（适合无法开启 USB 网络共享的环境，如鸿蒙卓易通）：\n1. 手机端开热点，电脑 Wi-Fi 连接手机热点；\n2. 电脑把目标文件夹设为共享，并记下电脑 IP（电脑上 ipconfig 查看，通常 192.168.43.x）；\n3. 下方“共享名/用户名/密码/远端目录”填电脑共享的信息；\n4. 电脑 IP 留空 = 自动探测热点网段的共享主机，也可手动填写（更可靠）；\n5. 需在电脑防火墙放行 SMB（445 端口，专用网络）。</string>
+    <string name="hotspot_err_not_found">未找到电脑共享主机。\n请确认：手机热点已开启、电脑已连接手机热点、电脑上已共享目标文件夹并放行 445 端口；也可在设置里手动填写电脑 IP。</string>
+    <string name="target_switch_hotspot_desc">当前共享设置不变，走手机热点直连电脑</string>
+
+    <!-- 暂停/继续 -->
+    <string name="main_btn_pause">暂停</string>
+    <string name="main_btn_continue">继续备份</string>
+    <string name="main_btn_discard">放弃待办</string>
+    <string name="main_btn_switch_target">换目标…</string>
+    <string name="main_paused_title">已暂停</string>
+    <string name="main_paused_detail">剩余 %1$d 个文件待备份 · 暂停于 %2$s</string>
+    <string name="target_switch_title">切换到哪个目标继续备份？</string>
+    <string name="target_switch_wifi_desc">当前共享设置不变，走 Wi-Fi 连接</string>
+    <string name="target_switch_usb_desc">当前共享设置不变，走 USB 直连电脑</string>
+    <string name="pause_requested">正在暂停（当前文件传输停止后保存进度）…</string>
+    <string name="notif_paused_title">备份已暂停</string>
+    <string name="notif_paused_text">剩余 %1$d 个文件。回到应用内可继续或换目标。</string>
+    <string name="phase_resume">正在继续上次备份…</string>
+    <string name="phase_dedupe">去重：%1$s</string>
+    <string name="dedupe_hint">已跳过重复内容 %1$d 个（同一内容只保留一份）</string>
+    <string name="main_result_paused">已暂停</string>
+
+    <!-- 后台保活 -->
+    <string name="keepalive_title">后台保活</string>
+    <string name="keepalive_desc">备份进行中会显示前台通知并持有运行锁，系统一般不会回收；若仍被系统/厂商省电策略杀掉（小米、华为、OPPO、vivo 等常见），请开启“忽略电池优化”并在系统“电池→后台运行限制”允许本应用。</string>
+    <string name="keepalive_status_on">已允许：忽略电池优化 ✔</string>
+    <string name="keepalive_status_off">未允许：点击下方按钮去系统设置开启“忽略电池优化”</string>
+    <string name="keepalive_button">去设置：忽略电池优化（防止备份被杀）</string>
+    <string name="battery_nag">建议允许“忽略电池优化”，防止备份在后台被系统中断</string>
+    <string name="battery_nag_action">去设置</string>
+
+    <!-- 崩溃诊断 -->
+    <string name="crash_dialog_title">检测到上次发生崩溃</string>
+    <string name="crash_dialog_message">以下是崩溃堆栈，请导出错误报告发送给开发者（复制在鸿蒙可能有长度限制）：</string>
+    <string name="crash_dialog_copy">复制堆栈</string>
+    <string name="crash_dialog_export">导出错误报告</string>
+    <string name="crash_dialog_clear">清除记录</string>
+    <string name="crash_copied">崩溃日志已复制</string>
+    <string name="report_share_title">发送错误报告</string>
+    <string name="report_exported">错误报告已导出</string>
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 网络：SMB 走 TCP 445 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 媒体读取：Android 13+ 分图片/视频权限；低版本用通用外部存储读权限 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- 可选：路径模式读取任意文件夹（“所有文件访问”，用户显式授予后才使用） -->
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <!-- 前台服务与通知 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 后台保活：请求用户允许“忽略电池优化”，防止长备份被系统杀进程 -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmbBackup">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.SmbActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SourcesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AlbumsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.OptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.LogsActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".service.BackupService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- WorkManager 自动备份前台服务类型（Android 14+ 要求） -->
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+
+    </application>
+</manifest>

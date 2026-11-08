@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'com.ybf.smbbak'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.ybf.smbbak"
+        minSdk 26
+        targetSdk 34
+        versionCode 13
+        versionName "1.4.7"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../smbbak.keystore')
+            storePassword 'smbbak2024'
+            keyAlias 'smbbak'
+            keyPassword 'smbbak2024'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    lint {
+        abortOnError false
+        // MANAGE_EXTERNAL_STORAGE 为可选功能（路径模式文件夹），由用户显式开启
+        disable 'ScopedStorage'
+    }
+
+    packaging {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt',
+                         'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/INDEX.LIST',
+                         'META-INF/versions/9/module-info.class', 'module-info.class']
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+
+    // SMB2/3 客户端（smbj 及其运行期依赖 bcprov/slf4j 等自动拉取）
+    implementation 'com.hierynomus:smbj:0.13.0'
+    // 关闭 slf4j 空实现告警
+    runtimeOnly 'org.slf4j:slf4j-nop:2.0.9'
+}

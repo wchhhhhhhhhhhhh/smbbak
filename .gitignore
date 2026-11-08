@@ -1,0 +1,24 @@
+*.iml
+.gradle
+.gradle-home
+.android
+/tmp
+/local.properties
+.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+app/build
+*.keystore
+!debug.keystore
+
+# macOS 构建遗留 / 备份
+*.win.bak
+build-mac.sh.bak
+
+# 鸿蒙版工程（另一个独立实现，不随安卓版入库）
+/ohos/
+# 本地出包产物
+/dist/
